@@ -61,7 +61,7 @@ cd proxmox-kernel
 
 # Clone official Proxmox kernel repo & Relaxed RMRR Mapping patch
 echo "Step 2.1: Downloading Proxmox kernel toolchain & patches"
-git clone --depth=1 -b master https://github.com/proxmox/pve-kernel.git
+git clone  -b master https://github.com/proxmox/pve-kernel.git
 git clone --depth=1 https://github.com/amelia808/relax-intel-rmrr.git
 
 # Go to the actual Proxmox toolchain
