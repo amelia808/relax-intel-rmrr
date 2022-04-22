@@ -89,7 +89,7 @@ echo '################# STEP 3 - CREATE KERNEL ##################'
 echo '###########################################################'
 echo "Step 3.0: Applying patches"
 cp ../relax-intel-rmrr/patches/add-relaxable-rmrr-5_8_and_up.patch ./patches/kernel/CUSTOM-add-relaxable-rmrr.patch
-patch -p1 < ../relax-intel-rmrr/patches/proxmox.patch
+#patch -p1 < ../relax-intel-rmrr/patches/proxmox.patch
 
 
 echo "Step 3.1: Compiling kernel... (it will take 30m-3h)"
