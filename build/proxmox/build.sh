@@ -61,7 +61,7 @@ cd proxmox-kernel
 
 # Clone official Proxmox kernel repo & Relaxed RMRR Mapping patch
 echo "Step 2.1: Downloading Proxmox kernel toolchain & patches"
-git clone --depth=1 -b master git://git.proxmox.com/git/pve-kernel.git
+git clone --depth=1 -b master https://github.com/proxmox/pve-kernel.git
 git clone --depth=1 https://github.com/amelia808/relax-intel-rmrr.git
 
 # Go to the actual Proxmox toolchain
@@ -89,7 +89,7 @@ echo '################# STEP 3 - CREATE KERNEL ##################'
 echo '###########################################################'
 echo "Step 3.0: Applying patches"
 cp ../relax-intel-rmrr/patches/add-relaxable-rmrr-5_8_and_up.patch ./patches/kernel/CUSTOM-add-relaxable-rmrr.patch
-
+patch -p1 < ../relax-intel-rmrr/patches/proxmox.patch
 
 echo "Step 3.1: Compiling kernel... (it will take 30m-3h)"
 # Note: DO NOT add -j to this make, see https://github.com/kiler129/relax-intel-rmrr/issues/1
