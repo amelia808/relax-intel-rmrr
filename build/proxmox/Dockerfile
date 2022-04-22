@@ -3,7 +3,7 @@
 # This Dockerfile builds the newest kernel with RMRR patch
 #
 # TODO Add support for custom branch of build
-FROM debian:buster
+FROM debian:bullseye
 
 RUN mkdir -p /build
 WORKDIR /build
