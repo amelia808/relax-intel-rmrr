@@ -61,7 +61,7 @@ cd proxmox-kernel
 
 # Clone official Proxmox kernel repo & Relaxed RMRR Mapping patch
 echo "Step 2.1: Downloading Proxmox kernel toolchain & patches"
-git clone  -b master https://github.com/proxmox/pve-kernel.git
+git clone  -b master git://git.proxmox.com/git/pve-kernel.git
 git clone --depth=1 https://github.com/amelia808/relax-intel-rmrr.git
 
 # Go to the actual Proxmox toolchain
@@ -73,10 +73,10 @@ cd pve-kernel
 #  bypasses the process safely.
 # This curl skips certificate validation because Proxmox GIT WebUI doesn't send Let's Encrypt intermediate cert
 echo "Step 2.2: Downloading base kernel"
-curl -f -k "https://git.proxmox.com/?p=mirror_ubuntu-focal-kernel.git;a=snapshot;h=$(git submodule status submodules/ubuntu-focal | cut -c 2-41);sf=tgz" --output kernel.tgz || true
+curl -f -k "https://git.proxmox.com/?p=mirror_ubuntu-jammy-kernel.git;a=snapshot;h=$(git submodule status submodules/ubuntu-jammy | cut -c 2-41);sf=tgz" --output kernel.tgz || true
 
 if [[ -f "kernel.tgz" ]]; then
-  tar -xf kernel.tgz -C submodules/ubuntu-focal/ --strip 1
+  tar -xf kernel.tgz -C submodules/ubuntu-jammy/ --strip 1
   rm kernel.tgz
 else
   echo "[-] Failed to download flat base kernel (will use git instead)"
