@@ -38,7 +38,7 @@ else
   apt -y update
   apt -y install gnupg
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7BF2812E8A6E88E0
-  echo 'deb http://download.proxmox.com/debian/pve buster pve-no-subscription' > /etc/apt/sources.list.d/pve.list
+  echo 'deb http://download.proxmox.com/debian/pve bullseye pve-no-subscription' > /etc/apt/sources.list.d/pve.list
 fi
 
 # Install all packages required to build the kernel & create *.deb packages for installation
@@ -47,7 +47,7 @@ apt -y update
 apt -y install git nano screen patch fakeroot build-essential devscripts libncurses5 libncurses5-dev libssl-dev bc \
  flex bison libelf-dev libaudit-dev libgtk2.0-dev libperl-dev asciidoc xmlto gnupg gnupg2 rsync lintian debhelper \
  libdw-dev libnuma-dev libslang2-dev sphinx-common asciidoc-base automake cpio dh-python file gcc kmod libiberty-dev \
- libpve-common-perl libtool perl-modules python-minimal sed tar zlib1g-dev lz4 curl dwarves
+ libpve-common-perl libtool perl-modules python2-minimal sed tar zlib1g-dev lz4 curl dwarves
 
 
 
@@ -89,7 +89,7 @@ echo '################# STEP 3 - CREATE KERNEL ##################'
 echo '###########################################################'
 echo "Step 3.0: Applying patches"
 cp ../relax-intel-rmrr/patches/add-relaxable-rmrr-5_8_and_up.patch ./patches/kernel/CUSTOM-add-relaxable-rmrr.patch
-patch -p1 < ../relax-intel-rmrr/patches/proxmox.patch
+patch -p2 < ../relax-intel-rmrr/patches/proxmox.patch
 
 echo "Step 3.1: Compiling kernel... (it will take 30m-3h)"
 # Note: DO NOT add -j to this make, see https://github.com/kiler129/relax-intel-rmrr/issues/1
