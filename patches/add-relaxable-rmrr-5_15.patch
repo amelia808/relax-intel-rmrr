@@ -1,0 +1,20 @@
+--- a/drivers/iommu/intel/iommu.c
++++ b/drivers/iommu/intel/iommu.c
+@@ -364,7 +364,7 @@ static int intel_iommu_strict;
+ static int intel_iommu_superpage = 1;
+ static int iommu_identity_mapping;
+ static int iommu_skip_te_disable;
+-
++static int intel_relaxable_rmrr = 1;
+ #define IDENTMAP_GFX		2
+ #define IDENTMAP_AZALIA		4
+ 
+@@ -2842,7 +2842,7 @@ static bool device_rmrr_is_relaxable(struct device *dev)
+ 		return false;
+ 
+ 	pdev = to_pci_dev(dev);
+-	if (IS_USB_DEVICE(pdev) || IS_GFX_DEVICE(pdev))
++	if (intel_relaxable_rmrr ||IS_USB_DEVICE(pdev) || IS_GFX_DEVICE(pdev))
+ 		return true;
+ 	else
+ 		return false;
