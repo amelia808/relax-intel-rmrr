@@ -47,7 +47,7 @@ apt -y update
 apt -y install git nano screen patch fakeroot build-essential devscripts libncurses5 libncurses5-dev libssl-dev bc \
  flex bison libelf-dev libaudit-dev libgtk2.0-dev libperl-dev asciidoc xmlto gnupg gnupg2 rsync lintian debhelper \
  libdw-dev libnuma-dev libslang2-dev sphinx-common asciidoc-base automake cpio dh-python file gcc kmod libiberty-dev \
- libpve-common-perl libtool perl-modules python-minimal sed tar zlib1g-dev lz4 curl
+ libpve-common-perl libtool perl-modules python-minimal sed tar zlib1g-dev lz4 curl dwarves
 
 
 
@@ -61,7 +61,7 @@ cd proxmox-kernel
 
 # Clone official Proxmox kernel repo & Relaxed RMRR Mapping patch
 echo "Step 2.1: Downloading Proxmox kernel toolchain & patches"
-git clone --depth=1 -b pve-kernel-5.4 git://git.proxmox.com/git/pve-kernel.git
+git clone --depth=1 -b master git://git.proxmox.com/git/pve-kernel.git
 git clone --depth=1 https://github.com/kiler129/relax-intel-rmrr.git
 
 # Go to the actual Proxmox toolchain
