@@ -92,7 +92,6 @@ cp ../relax-intel-rmrr/patches/add-relaxable-rmrr-5_15.patch ./patches/kernel/CU
 cp ../relax-intel-rmrr/patches/intel.patch ./patches/kernel/CUSTOM-intel.patch
 cp ../relax-intel-rmrr/patches/uksm.patch ./patches/kernel/CUSTOM-uksm.patch
 cp ../relax-intel-rmrr/patches/btrfs.patch ./patches/kernel/CUSTOM-btrfs.patch
-cp ../relax-intel-rmrr/patches/bfq.patch ./patches/kernel/CUSTOM-bfq.patch
 cp ../relax-intel-rmrr/patches/intel_sched.patch ./patches/kernel/CUSTOM-intel_sched.patch
 
 
